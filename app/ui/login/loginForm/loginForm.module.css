@@ -30,6 +30,8 @@
 }
 
 .form button {
+  text-align: center;
+  width: 50%;
   padding: 30px;
   background-color: teal;
   color: var(--text);

@@ -142,12 +142,13 @@ export const deleteProduct = async (formData) => {
   revalidatePath("/dashboard/products");
 };
 
-export const authenticate = async (formData) => {
+export const authenticate = async (prevState, formData) => {
   const { username, password } = Object.fromEntries(formData);
-  const signInResponse = await signIn("credentials", { username, password });
 
-  if (signInResponse?.user) return signInResponse.user;
-  else {
-    throw new Error("Failed to authenticate user");
+  try {
+    await signIn("credentials", { username, password, redirect: false }); // add redirect false
+  } catch (err) {
+    return "Wrong Credentials!";
   }
+  redirect("/dashboard"); //manually redirect
 };

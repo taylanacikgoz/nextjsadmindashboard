@@ -37,10 +37,6 @@
   color: blueviolet;
 }
 
-.animate__animated.animate__bounce {
-  --animate-duration: 1s;
-}
-
 @media screen and (max-width: 720px) {
   .main h1 {
     font-size: 12px;
